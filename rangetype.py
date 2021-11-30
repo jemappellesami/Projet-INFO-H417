@@ -13,8 +13,6 @@ def open_folder_csv(file, list):
         for line in csv_reader:
             list.append(line)
 
-list_range = []
-
 open_folder_csv(CSV_FILE,list_range)
 list_range.pop(0) # retire le from et to (première ligne du fichier csv)
 
