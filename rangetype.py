@@ -3,7 +3,11 @@ import matplotlib.pyplot as plt
 import math
 
 CSV_FILE = "random_ranges.csv"
+CSV_FILE2 = "random_ranges2.csv"
 list_range = []
+list_range2 = []
+
+
 """
 Permet d'ouvrir un ficher cvs et de le stocker dans une liste passer en paramètre.
 """
@@ -14,32 +18,49 @@ def open_folder_csv(file, list):
             list.append(line)
 
 open_folder_csv(CSV_FILE,list_range)
+open_folder_csv(CSV_FILE2, list_range2)
 list_range.pop(0) # retire le from et to (première ligne du fichier csv)
+list_range2.pop(0)
 
-max = 0
-min = 9999
-for i in list_range: #on cherche la valeur maximum qui determinera la longeur de notre histogram
-    if int(i[1])>max:
-        max = int(i[1])
-    if int(i[0])<min:
-        min = int(i[0])
-print("min :", min)
-print("max :", max)
+allListRanges = [list_range,list_range2]
+result = []
 
-nb_bin = 41 # nombre de bins qu'on souhaite avoir
-width = int((max-min)/nb_bin) # largeur de nos bins
-print("width :", width)
-# histo = [0 for i in range(1001+width-1)] # un histograme qui est initialisé comme une liste de 0 de la longueur du équivalent à la valeur maximal dans le ficher csv
-histo = [0 for i in range(nb_bin+1)]
-for space in list_range:
-    for j in range((int(space[0])-1)//width, math.ceil(int(space[1])/width)):
-        histo[j]+=1
-        # for i in range(width):
-        #     histo[j*width+i]+=1   #rempli l'histogram
+for lrange in allListRanges:
+    max = 0
+    min = 9999
+    for i in lrange: #on cherche la valeur maximum qui determinera la longeur de notre histogram
+        if int(i[1])>max:
+            max = int(i[1])
+        if int(i[0])<min:
+            min = int(i[0])
+    print("min :", min)
+    print("max :", max)
 
-print(histo)
+    nb_bin = 24 # nombre de bins qu'on souhaite avoir
+    width = int((max-min)/nb_bin) # largeur de nos bins
+    print("width :", width)
+    # histo = [0 for i in range(1001+width-1)] # un histograme qui est initialisé comme une liste de 0 de la longueur du équivalent à la valeur maximal dans le ficher csv
+    histo = [0 for i in range(nb_bin+1)]
+    for space in lrange:
+        for j in range((int(space[0]))//width, math.ceil(int(space[1])/width)):
+            histo[j]+=1
+        #for j in range((int(space[0])-1)//width, math.ceil(int(space[1])/width)):
+            # for i in range(width):
+            #     histo[j*width+i]+=1   #rempli l'histogram
+    print(histo)
+    result.append(histo)
+    result.append(width)
+
+with open('histos.txt', 'w') as f:
+    for i in result:
+        if type(i) is int:
+            f.write(str(i)+'\n')
+        else:
+            f.write(str(i)[1:-1]+'\n')
+
+
 # Affichage de l'histograme
-plt.figure()
-plt.plot(histo)
-plt.title('histogram with widths of size : ' + str(width))
-plt.show()
+# plt.figure()
+# plt.plot(histo)
+# plt.title('histogram with widths of size : ' + str(width))
+# plt.show()
