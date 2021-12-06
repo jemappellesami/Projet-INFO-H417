@@ -10,10 +10,10 @@ for name in files:
     i = 0 
     ultimate_max = 10000
     ultimate_min = 0
-
-    while i < 1000 :
-        max = rd.randint(2000, ultimate_max)
-        min = rd.randint(ultimate_min, 2000)
+    mid = rd.randint(ultimate_min, ultimate_max)
+    max = rd.randint(mid, ultimate_max)
+    min = rd.randint(ultimate_min, mid)
+    while i < 100 :
         lower = rd.randint(min, max)
         upper = rd.randint(min, max)
         if upper > lower :

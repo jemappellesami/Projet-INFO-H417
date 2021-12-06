@@ -37,10 +37,10 @@ for lrange in allListRanges:
     print("max :", max)
 
     nb_bin = 24 # nombre de bins qu'on souhaite avoir
-    width = int((max-min)/nb_bin) # largeur de nos bins
+    width = math.ceil(max/nb_bin) # largeur de nos bins
     print("width :", width)
     # histo = [0 for i in range(1001+width-1)] # un histograme qui est initialisé comme une liste de 0 de la longueur du équivalent à la valeur maximal dans le ficher csv
-    histo = [0 for i in range(nb_bin+1)]
+    histo = [0 for i in range(nb_bin)]
     for space in lrange:
         for j in range((int(space[0]))//width, math.ceil(int(space[1])/width)):
             histo[j]+=1
@@ -50,6 +50,16 @@ for lrange in allListRanges:
     print(histo)
     result.append(histo)
     result.append(width)
+
+count =0
+for elem in range(0, len(list_range)):
+    for scd_elem in range(0, len(list_range2)):
+        if list_range[elem][1] < list_range2[scd_elem][0] or list_range[elem][0] > list_range2[scd_elem][1]:
+            pass
+        else:
+            count += 1        
+print("The estimation value that the join cardinality has to tend to: " + str(count))
+
 
 with open('histos.txt', 'w') as f:
     for i in result:
