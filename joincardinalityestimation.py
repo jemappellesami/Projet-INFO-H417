@@ -12,7 +12,7 @@ for i in range(len(originalhistos)//2):
         histo[j] = int(histo[j])
     width = int(originalhistos[i*2+1])
     filterd_histo.append([histo,width])
-print(filterd_histo)
+
 
 if filterd_histo[0][1]>filterd_histo[1][1]:
     smallest = 1
