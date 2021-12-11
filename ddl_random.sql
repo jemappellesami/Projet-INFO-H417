@@ -5,16 +5,30 @@ INSERT INTO temp (
 	FROM generate_series(0,1000) AS s
 	)
 
-
+DROP TABLE temp_csv ;
 CREATE TABLE temp_csv(a int , b int) ;
 COPY temp_csv(a, b) 
 FROM '/tmp/random_ranges.csv' 
 DELIMITER ',' 
 CSV HEADER ;
 
-CREATE TABLE temp4(r int4range) ;
+CREATE TABLE seb1(r int4range) ;
 
-INSERT INTO temp4 (
+INSERT INTO seb1 (
 	SELECT int4range(a, b)
 	FROM temp_csv
-	)
+	) ;
+	
+DROP TABLE temp_csv ;
+CREATE TABLE temp_csv(a int , b int) ;
+COPY temp_csv(a, b) 
+FROM '/tmp/random_ranges2.csv' 
+DELIMITER ',' 
+CSV HEADER ;
+
+
+CREATE TABLE seb2(r int4range) ;
+INSERT INTO seb2 (
+	SELECT int4range(a, b)
+	FROM temp_csv
+	) ;

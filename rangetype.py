@@ -39,6 +39,8 @@ for lrange in allListRanges:
     nb_bin = 24 # nombre de bins qu'on souhaite avoir
     width = math.ceil(max/nb_bin) # largeur de nos bins
     print("width :", width)
+
+    
     # histo = [0 for i in range(1001+width-1)] # un histograme qui est initialisé comme une liste de 0 de la longueur du équivalent à la valeur maximal dans le ficher csv
     histo = [0 for i in range(nb_bin)]
     for space in lrange:
