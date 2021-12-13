@@ -1,0 +1,54 @@
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Seq Scan on temp  (cost=0.00..18.51 rows=657 width=14) (actual time=0.157..0.483 rows=640 loops=1)
+   Filter: (r && '[370,3279)'::int4range)
+   Rows Removed by Filter: 361
+ Planning Time: 0.396 ms
+ Execution Time: 0.552 ms
+(5 rows)
+
+                                             QUERY PLAN                                              
+-----------------------------------------------------------------------------------------------------
+ Seq Scan on temp2  (cost=0.00..18.50 rows=479 width=14) (actual time=0.014..0.417 rows=712 loops=1)
+   Filter: (r && '[370,3279)'::int4range)
+   Rows Removed by Filter: 288
+ Planning Time: 0.242 ms
+ Execution Time: 0.504 ms
+(5 rows)
+
+                                           QUERY PLAN                                           
+------------------------------------------------------------------------------------------------
+ Seq Scan on seb1  (cost=0.00..18.50 rows=1 width=14) (actual time=0.425..0.426 rows=0 loops=1)
+   Filter: (r && '[370,3279)'::int4range)
+   Rows Removed by Filter: 1000
+ Planning Time: 0.164 ms
+ Execution Time: 0.440 ms
+(5 rows)
+
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Seq Scan on seb2  (cost=0.00..18.49 rows=270 width=14) (actual time=0.010..0.363 rows=531 loops=1)
+   Filter: (r && '[370,3279)'::int4range)
+   Rows Removed by Filter: 468
+ Planning Time: 0.103 ms
+ Execution Time: 0.402 ms
+(5 rows)
+
+                                                 QUERY PLAN                                                 
+------------------------------------------------------------------------------------------------------------
+ Seq Scan on range_test  (cost=0.00..180.00 rows=917 width=14) (actual time=0.014..3.728 rows=2712 loops=1)
+   Filter: (r && '[370,3279)'::int4range)
+   Rows Removed by Filter: 7288
+ Planning Time: 0.313 ms
+ Execution Time: 3.901 ms
+(5 rows)
+
+                                                 QUERY PLAN                                                  
+-------------------------------------------------------------------------------------------------------------
+ Seq Scan on range_test2  (cost=0.00..180.00 rows=863 width=14) (actual time=0.008..2.560 rows=2623 loops=1)
+   Filter: (r && '[370,3279)'::int4range)
+   Rows Removed by Filter: 7377
+ Planning Time: 0.144 ms
+ Execution Time: 2.677 ms
+(5 rows)
+
