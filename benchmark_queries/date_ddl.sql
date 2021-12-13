@@ -11,6 +11,8 @@ CREATE TABLE date_test_2 as (
 	FROM (SELECT (NOW() + (random() * (NOW()+'3000 days' - NOW())))::date as lb,
 		  (random() * ('6000 days'::INTERVAL))::INTERVAL as len 
 		  FROM generate_series(1,2500)) x);	
+		  
+		  
 
 DROP TABLE IF EXISTS date_test_3 ;
 CREATE TABLE date_test_3 as (

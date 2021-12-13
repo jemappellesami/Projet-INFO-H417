@@ -2,3 +2,4 @@
 rm "../benchmark_results/leftof.txt"
 
 /usr/local/pgsql/bin/psql -U postgres -d test -f "../benchmark_queries/leftof.sql" >> "../benchmark_results/leftof.txt"
+# /usr/local/pgsql/bin/psql -U postgres -d test -f "../benchmark_queries/leftof_date.sql" >> "../benchmark_results/leftof.txt"
