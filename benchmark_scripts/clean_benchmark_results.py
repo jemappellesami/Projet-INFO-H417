@@ -1,7 +1,12 @@
-print("RESULTS FOR JOIN")
-f = open("benchmark_results/join.txt", "r")
+import os
+os.chdir("/home/sami/OneDrive/Documents/ULB/MA1 IR-IF/INFO-H417/Projet/Projet-INFO-H417/benchmark_scripts")
+
+f = open("../benchmark_results/join.txt", "r")
 content = f.read()
 
+output_string = ""
+
+output_string += ("RESULTS FOR JOIN\n")
 for line in content.splitlines() :
     if("Nested" in line) :
 
@@ -17,12 +22,14 @@ for line in content.splitlines() :
                 estim = rows_number_comp[0]
                 real = rows_number_comp[1]
                 if(real != 0) :
-                    print("Comparison : {}".format(estim/real))
+                    output_string += ("Comparison : {}\n".format(estim/real))
                 else :
-                    print("Comparison : {}/0".format(estim))
+                    output_string += ("Comparison : {}/0\n".format(estim))
                 rows_field_counter = 0
-print("RESULTS FOR OVERLAPS")
-f = open("benchmark_results/overlaps.txt", "r")
+
+            
+output_string += ("\n\nRESULTS FOR OVERLAPS\n")
+f = open("../benchmark_results/overlaps.txt", "r")
 content = f.read()
 
 for line in content.splitlines() :
@@ -40,14 +47,14 @@ for line in content.splitlines() :
                 estim = rows_number_comp[0]
                 real = rows_number_comp[1]
                 if(real != 0) :
-                    print("Comparison : {}".format(estim/real))
+                    output_string += ("Comparison : {}\n".format(estim/real))
                 else :
-                    print("Comparison : {}/0".format(estim))
+                    output_string += ("Comparison : {}/0\n".format(estim))
                 rows_field_counter = 0
 
+output_string += ("\n\nRESULTS FOR LEFTOF\n")
 
-print("RESULTS FOR LEFTOF")
-f = open("benchmark_results/leftof.txt", "r")
+f = open("../benchmark_results/leftof.txt", "r")
 content = f.read()
 
 for line in content.splitlines() :
@@ -65,7 +72,16 @@ for line in content.splitlines() :
                 estim = rows_number_comp[0]
                 real = rows_number_comp[1]
                 if(real != 0) :
-                    print("Comparison : {}".format(estim/real))
+                    output_string += ("Comparison : {}\n".format(estim/real))
                 else :
-                    print("Comparison : {}/0".format(estim))
+                    output_string += ("Comparison : {}/0\n".format(estim))
                 rows_field_counter = 0
+
+from datetime import date, datetime
+now = datetime.now().strftime("%H_%M_%S_results.txt")
+
+output_file = open(now, "w")
+print(output_string)
+output_file.write(output_string)
+output_file.close() 
+
