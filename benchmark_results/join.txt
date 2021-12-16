@@ -1,78 +1,78 @@
                                                             QUERY PLAN                                                             
 -----------------------------------------------------------------------------------------------------------------------------------
- Aggregate  (cost=38951.05..38951.06 rows=1 width=8) (actual time=707.771..707.772 rows=1 loops=1)
-   ->  Nested Loop  (cost=0.00..37557.50 rows=557421 width=0) (actual time=0.029..680.181 rows=533241 loops=1)
+ Aggregate  (cost=39368.93..39368.94 rows=1 width=8) (actual time=413.505..413.506 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.00..37557.50 rows=724571 width=0) (actual time=0.020..397.566 rows=527511 loops=1)
          Join Filter: (t1.r && t2.r)
-         Rows Removed by Join Filter: 1966759
-         ->  Seq Scan on range_test_2 t2  (cost=0.00..39.00 rows=2500 width=14) (actual time=0.012..0.428 rows=2500 loops=1)
-         ->  Materialize  (cost=0.00..21.00 rows=1000 width=14) (actual time=0.000..0.053 rows=1000 loops=2500)
-               ->  Seq Scan on range_test_1 t1  (cost=0.00..16.00 rows=1000 width=14) (actual time=0.004..0.108 rows=1000 loops=1)
- Planning Time: 0.633 ms
- Execution Time: 707.862 ms
+         Rows Removed by Join Filter: 1972489
+         ->  Seq Scan on range_test_2 t2  (cost=0.00..39.00 rows=2500 width=14) (actual time=0.007..0.259 rows=2500 loops=1)
+         ->  Materialize  (cost=0.00..21.00 rows=1000 width=14) (actual time=0.000..0.030 rows=1000 loops=2500)
+               ->  Seq Scan on range_test_1 t1  (cost=0.00..16.00 rows=1000 width=14) (actual time=0.003..0.117 rows=1000 loops=1)
+ Planning Time: 0.319 ms
+ Execution Time: 413.573 ms
 (9 rows)
 
                                                             QUERY PLAN                                                             
 -----------------------------------------------------------------------------------------------------------------------------------
- Aggregate  (cost=194237.98..194237.99 rows=1 width=8) (actual time=3521.903..3521.905 rows=1 loops=1)
-   ->  Nested Loop  (cost=0.00..187623.25 rows=2645891 width=0) (actual time=0.012..3384.373 rows=2644920 loops=1)
+ Aggregate  (cost=194494.74..194494.76 rows=1 width=8) (actual time=2046.523..2046.524 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.00..187623.25 rows=2748598 width=0) (actual time=0.009..1965.523 rows=2709431 loops=1)
          Join Filter: (t1.r && t2.r)
-         Rows Removed by Join Filter: 9855080
-         ->  Seq Scan on range_test_3 t2  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.004..0.992 rows=5000 loops=1)
-         ->  Materialize  (cost=0.00..51.50 rows=2500 width=14) (actual time=0.000..0.132 rows=2500 loops=5000)
-               ->  Seq Scan on range_test_2 t1  (cost=0.00..39.00 rows=2500 width=14) (actual time=0.002..0.179 rows=2500 loops=1)
- Planning Time: 0.109 ms
- Execution Time: 3521.975 ms
+         Rows Removed by Join Filter: 9790569
+         ->  Seq Scan on range_test_3 t2  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.003..0.565 rows=5000 loops=1)
+         ->  Materialize  (cost=0.00..51.50 rows=2500 width=14) (actual time=0.000..0.074 rows=2500 loops=5000)
+               ->  Seq Scan on range_test_2 t1  (cost=0.00..39.00 rows=2500 width=14) (actual time=0.002..0.112 rows=2500 loops=1)
+ Planning Time: 0.086 ms
+ Execution Time: 2046.573 ms
 (9 rows)
 
                                                             QUERY PLAN                                                             
 -----------------------------------------------------------------------------------------------------------------------------------
- Aggregate  (cost=774506.00..774506.01 rows=1 width=8) (actual time=10179.371..10179.372 rows=1 loops=1)
-   ->  Nested Loop  (cost=0.00..750245.50 rows=9704200 width=0) (actual time=0.014..9782.239 rows=10613443 loops=1)
+ Aggregate  (cost=768753.63..768753.64 rows=1 width=8) (actual time=8173.959..8173.960 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.00..750245.50 rows=7403253 width=0) (actual time=0.016..7853.484 rows=10691016 loops=1)
          Join Filter: (t1.r && t2.r)
-         Rows Removed by Join Filter: 39386557
-         ->  Seq Scan on range_test_4 t2  (cost=0.00..155.00 rows=10000 width=14) (actual time=0.005..2.332 rows=10000 loops=1)
-         ->  Materialize  (cost=0.00..103.00 rows=5000 width=14) (actual time=0.000..0.190 rows=5000 loops=10000)
-               ->  Seq Scan on range_test_3 t1  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.002..0.351 rows=5000 loops=1)
- Planning Time: 0.140 ms
- Execution Time: 10179.432 ms
+         Rows Removed by Join Filter: 39308984
+         ->  Seq Scan on range_test_4 t2  (cost=0.00..155.00 rows=10000 width=14) (actual time=0.009..1.678 rows=10000 loops=1)
+         ->  Materialize  (cost=0.00..103.00 rows=5000 width=14) (actual time=0.000..0.149 rows=5000 loops=10000)
+               ->  Seq Scan on range_test_3 t1  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.001..0.217 rows=5000 loops=1)
+ Planning Time: 0.086 ms
+ Execution Time: 8174.015 ms
 (9 rows)
 
                                                             QUERY PLAN                                                             
 -----------------------------------------------------------------------------------------------------------------------------------
- Aggregate  (cost=194237.98..194237.99 rows=1 width=8) (actual time=2080.808..2080.809 rows=1 loops=1)
-   ->  Nested Loop  (cost=0.00..187623.25 rows=2645891 width=0) (actual time=0.012..1999.755 rows=2644920 loops=1)
+ Aggregate  (cost=194494.74..194494.76 rows=1 width=8) (actual time=2077.621..2077.623 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.00..187623.25 rows=2748598 width=0) (actual time=0.011..1995.244 rows=2709431 loops=1)
          Join Filter: (t1.r && t2.r)
-         Rows Removed by Join Filter: 9855080
-         ->  Seq Scan on range_test_3 t1  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.005..0.587 rows=5000 loops=1)
-         ->  Materialize  (cost=0.00..51.50 rows=2500 width=14) (actual time=0.000..0.077 rows=2500 loops=5000)
-               ->  Seq Scan on range_test_2 t2  (cost=0.00..39.00 rows=2500 width=14) (actual time=0.002..0.108 rows=2500 loops=1)
- Planning Time: 0.060 ms
- Execution Time: 2080.851 ms
+         Rows Removed by Join Filter: 9790569
+         ->  Seq Scan on range_test_3 t1  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.005..0.720 rows=5000 loops=1)
+         ->  Materialize  (cost=0.00..51.50 rows=2500 width=14) (actual time=0.000..0.076 rows=2500 loops=5000)
+               ->  Seq Scan on range_test_2 t2  (cost=0.00..39.00 rows=2500 width=14) (actual time=0.002..0.110 rows=2500 loops=1)
+ Planning Time: 0.056 ms
+ Execution Time: 2077.666 ms
 (9 rows)
 
                                                             QUERY PLAN                                                             
 -----------------------------------------------------------------------------------------------------------------------------------
- Aggregate  (cost=77732.97..77732.98 rows=1 width=8) (actual time=833.141..833.142 rows=1 loops=1)
-   ->  Nested Loop  (cost=0.00..75096.50 rows=1054589 width=0) (actual time=0.013..800.788 rows=1063141 loops=1)
+ Aggregate  (cost=78067.98..78067.99 rows=1 width=8) (actual time=816.742..816.743 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.00..75096.50 rows=1188590 width=0) (actual time=0.013..785.576 rows=1043999 loops=1)
          Join Filter: (t1.r && t2.r)
-         Rows Removed by Join Filter: 3936859
-         ->  Seq Scan on range_test_3 t2  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.005..0.413 rows=5000 loops=1)
-         ->  Materialize  (cost=0.00..21.00 rows=1000 width=14) (actual time=0.000..0.031 rows=1000 loops=5000)
-               ->  Seq Scan on range_test_1 t1  (cost=0.00..16.00 rows=1000 width=14) (actual time=0.002..0.045 rows=1000 loops=1)
- Planning Time: 0.060 ms
- Execution Time: 833.164 ms
+         Rows Removed by Join Filter: 3956001
+         ->  Seq Scan on range_test_3 t2  (cost=0.00..78.00 rows=5000 width=14) (actual time=0.005..0.314 rows=5000 loops=1)
+         ->  Materialize  (cost=0.00..21.00 rows=1000 width=14) (actual time=0.000..0.030 rows=1000 loops=5000)
+               ->  Seq Scan on range_test_1 t1  (cost=0.00..16.00 rows=1000 width=14) (actual time=0.002..0.044 rows=1000 loops=1)
+ Planning Time: 0.058 ms
+ Execution Time: 816.768 ms
 (9 rows)
 
                                                             QUERY PLAN                                                             
 -----------------------------------------------------------------------------------------------------------------------------------
- Aggregate  (cost=155264.01..155264.02 rows=1 width=8) (actual time=1670.342..1670.343 rows=1 loops=1)
-   ->  Nested Loop  (cost=0.00..150173.50 rows=2036203 width=0) (actual time=0.011..1604.687 rows=2137347 loops=1)
+ Aggregate  (cost=155082.55..155082.56 rows=1 width=8) (actual time=1623.993..1623.994 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.00..150173.50 rows=1963621 width=0) (actual time=0.012..1561.993 rows=2078823 loops=1)
          Join Filter: (t1.r && t2.r)
-         Rows Removed by Join Filter: 7862653
-         ->  Seq Scan on range_test_4 t2  (cost=0.00..155.00 rows=10000 width=14) (actual time=0.005..0.979 rows=10000 loops=1)
-         ->  Materialize  (cost=0.00..21.00 rows=1000 width=14) (actual time=0.000..0.031 rows=1000 loops=10000)
-               ->  Seq Scan on range_test_1 t1  (cost=0.00..16.00 rows=1000 width=14) (actual time=0.002..0.045 rows=1000 loops=1)
- Planning Time: 0.060 ms
- Execution Time: 1670.366 ms
+         Rows Removed by Join Filter: 7921177
+         ->  Seq Scan on range_test_4 t2  (cost=0.00..155.00 rows=10000 width=14) (actual time=0.005..0.619 rows=10000 loops=1)
+         ->  Materialize  (cost=0.00..21.00 rows=1000 width=14) (actual time=0.000..0.030 rows=1000 loops=10000)
+               ->  Seq Scan on range_test_1 t1  (cost=0.00..16.00 rows=1000 width=14) (actual time=0.002..0.044 rows=1000 loops=1)
+ Planning Time: 0.059 ms
+ Execution Time: 1624.016 ms
 (9 rows)
 

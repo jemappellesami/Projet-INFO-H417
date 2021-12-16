@@ -1,54 +1,54 @@
                                                  QUERY PLAN                                                 
 ------------------------------------------------------------------------------------------------------------
- Seq Scan on range_test_1  (cost=0.00..18.50 rows=111 width=14) (actual time=0.013..0.288 rows=142 loops=1)
+ Seq Scan on range_test_1  (cost=0.00..18.50 rows=114 width=14) (actual time=0.009..0.314 rows=135 loops=1)
    Filter: (r && '[999,1000)'::int4range)
-   Rows Removed by Filter: 858
- Planning Time: 0.270 ms
- Execution Time: 0.309 ms
+   Rows Removed by Filter: 865
+ Planning Time: 0.271 ms
+ Execution Time: 0.334 ms
 (5 rows)
 
                                                  QUERY PLAN                                                 
 ------------------------------------------------------------------------------------------------------------
- Seq Scan on range_test_2  (cost=0.00..45.25 rows=448 width=14) (actual time=0.021..0.701 rows=372 loops=1)
+ Seq Scan on range_test_2  (cost=0.00..45.25 rows=327 width=14) (actual time=0.008..0.847 rows=391 loops=1)
    Filter: (r && '[999,1000)'::int4range)
-   Rows Removed by Filter: 2128
- Planning Time: 0.074 ms
- Execution Time: 0.724 ms
+   Rows Removed by Filter: 2109
+ Planning Time: 0.102 ms
+ Execution Time: 0.880 ms
 (5 rows)
 
                                                  QUERY PLAN                                                 
 ------------------------------------------------------------------------------------------------------------
- Seq Scan on range_test_3  (cost=0.00..90.50 rows=665 width=14) (actual time=0.009..1.228 rows=799 loops=1)
+ Seq Scan on range_test_3  (cost=0.00..90.50 rows=722 width=14) (actual time=0.008..1.467 rows=764 loops=1)
    Filter: (r && '[999,1000)'::int4range)
-   Rows Removed by Filter: 4201
- Planning Time: 0.083 ms
- Execution Time: 1.264 ms
+   Rows Removed by Filter: 4236
+ Planning Time: 0.110 ms
+ Execution Time: 1.524 ms
 (5 rows)
 
                                                   QUERY PLAN                                                   
 ---------------------------------------------------------------------------------------------------------------
- Seq Scan on range_test_4  (cost=0.00..180.00 rows=1879 width=14) (actual time=0.008..2.236 rows=1451 loops=1)
+ Seq Scan on range_test_4  (cost=0.00..180.00 rows=1621 width=14) (actual time=0.019..2.778 rows=1491 loops=1)
    Filter: (r && '[999,1000)'::int4range)
-   Rows Removed by Filter: 8549
- Planning Time: 0.069 ms
- Execution Time: 2.293 ms
-(5 rows)
-
-                                                  QUERY PLAN                                                   
----------------------------------------------------------------------------------------------------------------
- Seq Scan on range_test_5  (cost=0.00..448.50 rows=3849 width=14) (actual time=0.019..6.871 rows=3740 loops=1)
-   Filter: (r && '[999,1000)'::int4range)
-   Rows Removed by Filter: 21260
+   Rows Removed by Filter: 8509
  Planning Time: 0.100 ms
- Execution Time: 7.102 ms
+ Execution Time: 2.875 ms
 (5 rows)
 
-                                                   QUERY PLAN                                                   
-----------------------------------------------------------------------------------------------------------------
- Seq Scan on range_test_6  (cost=0.00..896.00 rows=8656 width=14) (actual time=0.013..11.444 rows=7372 loops=1)
+                                                  QUERY PLAN                                                   
+---------------------------------------------------------------------------------------------------------------
+ Seq Scan on range_test_5  (cost=0.00..448.50 rows=4605 width=14) (actual time=0.006..2.966 rows=3717 loops=1)
    Filter: (r && '[999,1000)'::int4range)
-   Rows Removed by Filter: 42628
- Planning Time: 0.091 ms
- Execution Time: 11.706 ms
+   Rows Removed by Filter: 21283
+ Planning Time: 0.064 ms
+ Execution Time: 3.066 ms
+(5 rows)
+
+                                                  QUERY PLAN                                                   
+---------------------------------------------------------------------------------------------------------------
+ Seq Scan on range_test_6  (cost=0.00..896.00 rows=8914 width=14) (actual time=0.010..5.986 rows=7246 loops=1)
+   Filter: (r && '[999,1000)'::int4range)
+   Rows Removed by Filter: 42754
+ Planning Time: 0.062 ms
+ Execution Time: 6.178 ms
 (5 rows)
 
